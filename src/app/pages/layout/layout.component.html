@@ -1,0 +1,63 @@
+<div class="example-container">
+  <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon *ngIf="!sidenav.opened">menu_open</mat-icon>
+          <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+      </button>
+
+      <h1 class="example-app-name">LOGIN - ANGULAR</h1>
+
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="sidenav.opened = false" (click)="cerrarSesion()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Cerrar Sesión</span>
+          </button>
+      </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+      <mat-sidenav #sidenav style="width: 200px" mode="over">
+
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()" routerLink="/" style="cursor: pointer">
+              <mat-icon>insert_drive_file</mat-icon>
+              <span>Opción 1</span>
+          </button>
+          <mat-divider></mat-divider>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()"
+              style="cursor: pointer">
+              <mat-icon>insert_drive_file</mat-icon>
+              <span>Opción 2</span>
+          </button>
+          <mat-divider></mat-divider>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="sidenav.toggle()" style="cursor: pointer">
+            <mat-icon>insert_drive_file</mat-icon>
+            <span>Opción 3</span>
+        </button>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="sidenav.toggle()"
+            style="cursor: pointer">
+            <mat-icon>insert_drive_file</mat-icon>
+            <span>Opción 4</span>
+        </button>
+        <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+          <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+
+  </mat-sidenav-container>
+
+</div>
